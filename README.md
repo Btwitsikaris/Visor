@@ -8,11 +8,11 @@
 
 <br/>
 
-![Python](https://img.shields.io/badge/Python-3.10+-FFB020?style=flat-square&logo=python&logoColor=0C1013&labelColor=131A1F)
-![YOLO](https://img.shields.io/badge/Ultralytics-YOLO-FFB020?style=flat-square&labelColor=131A1F)
-![OpenCV](https://img.shields.io/badge/OpenCV-vision-FFB020?style=flat-square&logo=opencv&logoColor=FFB020&labelColor=131A1F)
-![EasyOCR](https://img.shields.io/badge/EasyOCR-plates-FFB020?style=flat-square&labelColor=131A1F)
-![Streamlit](https://img.shields.io/badge/Streamlit-dashboard-FFB020?style=flat-square&logo=streamlit&logoColor=FFB020&labelColor=131A1F)
+![Python](https://img.shields.io/badge/Python-3.10+-1B242B?style=flat-square&logo=python&logoColor=FFB020&labelColor=131A1F)
+![YOLO](https://img.shields.io/badge/Ultralytics-YOLO-1B242B?style=flat-square&labelColor=131A1F)
+![OpenCV](https://img.shields.io/badge/OpenCV-vision-1B242B?style=flat-square&logo=opencv&logoColor=FFB020&labelColor=131A1F)
+![EasyOCR](https://img.shields.io/badge/EasyOCR-plates-1B242B?style=flat-square&labelColor=131A1F)
+![Streamlit](https://img.shields.io/badge/Streamlit-dashboard-1B242B?style=flat-square&logo=streamlit&logoColor=FFB020&labelColor=131A1F)
 
 <br/>
 
