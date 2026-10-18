@@ -1,0 +1,39 @@
+models:
+  vehicle: yolov8n.pt         # COCO-pretrained, used only to find/track motorcycles
+  helmet: models/helmet.pt    # YOUR trained model (see README, step 2)
+  plate: models/plate.pt      # YOUR trained model (see README, step 2)
+
+classes:
+  motorcycle_id: 3            # COCO class id for "motorcycle"
+  # Names are matched case-insensitively; spaces/hyphens are treated as "_".
+  # Edit these to match the class names in YOUR helmet dataset's data.yaml.
+  helmet_names: [helmet, with_helmet]
+  no_helmet_names: [no_helmet, without_helmet, head]
+
+vehicles:
+  log_other_plates: true      # also read + log plates of cars / buses / trucks (no helmet check)
+  classes:                    # COCO class id -> label
+    2: car
+    5: bus
+    7: truck
+
+thresholds:
+  vehicle_conf: 0.35
+  helmet_conf: 0.40
+  no_helmet_conf: 0.60        # a "no helmet" detection must be at least this confident to count
+  plate_conf: 0.40
+  min_violation_frames: 5     # frames with "no helmet" before a track counts as a violation
+  violation_ratio: 0.65       # share of helmet-evidence frames that must be "no helmet"
+  lost_frames: 30             # frames a track may vanish before it is finalized
+  ocr_min_conf: 0.30
+
+processing:
+  imgsz: 960
+  frame_skip: 3
+  gpu: true
+  plate_crops_per_track: 3
+
+paths:
+  snapshots: output/snapshots
+  videos: output/videos       # annotated videos, one per run (played on the dashboard)
+  db: output/violations.db
