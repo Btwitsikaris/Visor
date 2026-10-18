@@ -1,0 +1,7 @@
+# Lightweight dependencies for the Streamlit Community Cloud demo.
+# (Streamlit Cloud uses this file instead of the root requirements.txt,
+#  because it sits next to dashboard.py. The detection models are NOT needed here.)
+streamlit>=1.35
+pandas
+pyyaml
+pillow

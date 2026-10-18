@@ -23,6 +23,12 @@ import yaml
 cfg = yaml.safe_load(open("config.yaml"))
 DB_PATH = cfg["paths"]["db"]
 VIDEO_DIR = Path(cfg["paths"].get("videos", "output/videos"))
+# Demo mode (Streamlit Cloud): no trained models on the server, so show the saved results in demo/
+DEMO_DIR = Path("demo")
+DEMO = (DEMO_DIR / "violations.db").exists() and not Path(cfg["models"]["helmet"]).exists()
+if DEMO:
+    DB_PATH = str(DEMO_DIR / "violations.db")
+    VIDEO_DIR = DEMO_DIR / "videos"
 LEGACY_VIDEO = Path(DB_PATH).parent / "annotated.mp4"  # written by older versions of the pipeline
 
 ASSETS = Path(__file__).parent / "assets"
@@ -292,6 +298,12 @@ def show_result(last: dict) -> None:
 
 def analyze_ui() -> None:
     """Upload a video, run the pipeline on it in the background and show the results."""
+    if DEMO:
+        st.markdown('<div class="hg-section">Analyze a video</div>', unsafe_allow_html=True)
+        st.info("This is a read-only demo. The detection models run on the author's own computer, "
+                "so uploads are turned off here. The other tabs show real results from a processed video. "
+                "To analyze your own videos, run Visor locally (see the README).")
+        return
     last = st.session_state.get("last_run")
     if last:
         show_result(last)
@@ -395,7 +407,10 @@ with st.sidebar:
     if stretch(st.button, "↻ Refresh data"):
         st.cache_data.clear()
         st.rerun()
-    st.caption("Tip: run the pipeline in another terminal, then press Refresh.")
+    if DEMO:
+        st.caption("Demo mode: showing saved results from a processed video.")
+    else:
+        st.caption("Tip: run the pipeline in another terminal, then press Refresh.")
 
 view = df_all.copy()
 if not view.empty:

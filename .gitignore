@@ -7,3 +7,8 @@ videos/
 models/*.pt
 *.mp4
 .venv/
+
+# allow the demo folder (used by the Streamlit Cloud demo)
+!demo/
+!demo/videos/
+!demo/videos/*.mp4
