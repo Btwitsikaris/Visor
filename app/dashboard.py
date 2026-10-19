@@ -628,3 +628,32 @@ with tab_stats:
                     "last_seen": st.column_config.DatetimeColumn("Last seen", format="DD MMM YYYY, HH:mm"),
                 },
             )
+
+# --------------------------------------------------------------------------- footer
+try:
+    _flogo = base64.b64encode((ASSETS / "logo.png").read_bytes()).decode()
+    _flogo_html = f'<img src="data:image/png;base64,{_flogo}" alt="Visor logo">'
+except Exception:
+    _flogo_html = ""
+
+st.markdown(
+    f"""
+<div class="hg-footer">
+  <div class="hg-footer-grid">
+    <div>
+      <div class="hg-footer-brand">{_flogo_html}<span>Visor</span></div>
+      <div class="hg-footer-desc">An AI gate-camera that detects riders without helmets,
+        reads the number plate, and logs the evidence, built for campus gates, parking entrances and traffic studies.</div>
+    </div>
+    <div class="hg-footer-col">
+      <div class="hg-footer-title">Contact</div>
+      <p>Designed by <b>Aniket Majumdar</b></p>
+      <p><a href="mailto:aniketmajumdar2006@gmail.com">aniketmajumdar2006@gmail.com</a></p>
+      <p>for questions, bugs, or feedback</p>
+    </div>
+  </div>
+  <div class="hg-footer-copy">© 2026 Visor</div>
+</div>
+""",
+    unsafe_allow_html=True,
+)
