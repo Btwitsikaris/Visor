@@ -158,6 +158,21 @@ div[data-testid="stVideo"] { box-shadow:0 18px 50px rgba(0,0,0,.45); }
 div[data-testid="stImage"] img { border-radius:12px; }
 button[kind="secondary"], .stDownloadButton button { border-radius:10px; border:1px solid var(--line); background:var(--panel); }
 button[kind="secondary"]:hover, .stDownloadButton button:hover { border-color:var(--amber); color:var(--amber); }
+/* ---- footer ---- */
+.hg-footer { margin-top:4rem; border-top:1px solid var(--line); padding:44px 0 0; }
+.hg-footer-grid { display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; }
+.hg-footer-brand { display:flex; align-items:center; gap:12px; font-family:var(--display);
+                   font-weight:700; font-size:1.05rem; color:var(--text); }
+.hg-footer-brand img { width:34px; height:34px; border-radius:9px; }
+.hg-footer-desc { color:var(--muted); font-size:.92rem; line-height:1.7; max-width:420px; margin-top:18px; }
+.hg-footer-title { color:var(--muted); font-size:.8rem; font-weight:600; letter-spacing:.18em;
+                   text-transform:uppercase; margin-bottom:12px; }
+.hg-footer-col p { margin:0 0 10px; color:var(--muted); font-size:.92rem; }
+.hg-footer-col b { color:var(--text); font-weight:600; }
+.hg-footer-col a { color:var(--text); text-decoration:none; }
+.hg-footer-col a:hover { color:var(--amber); }
+.hg-footer-copy { margin-top:36px; padding:20px 0 8px; border-top:1px solid var(--line-soft);
+                  color:var(--muted); font-size:.8rem; }
 </style>
 """,
     unsafe_allow_html=True,
